@@ -6,7 +6,7 @@ s.summary      = "Custom implementation of back navigation item actions."
 s.description  = <<-DESC
                 Custom implementation of back navigation item actions using protocol or block.
                 DESC
-s.homepage     = "https://github.com/devedbox/Custom implementation of back navigation item actions."
+s.homepage     = "https://github.com/devedbox/AXNavigationBackItemInjection"
 s.license      = { :type => "MIT", :file => "LICENSE" }
 s.author             = { "devedbox" => "devedbox@gmail.com" }
 s.platform     = :ios, "7.0"
