@@ -15,6 +15,7 @@
 		014A660F1D5197D40055600B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014A660D1D5197D40055600B /* LaunchScreen.storyboard */; };
 		014A661A1D5197D50055600B /* AXNavigationBackItemInjectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 014A66191D5197D50055600B /* AXNavigationBackItemInjectionTests.m */; };
 		014A66251D5197D50055600B /* AXNavigationBackItemInjectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 014A66241D5197D50055600B /* AXNavigationBackItemInjectionUITests.m */; };
+		014A66341D5198840055600B /* AXPopNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014A66331D5198840055600B /* AXPopNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		014A66201D5197D50055600B /* AXNavigationBackItemInjectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXNavigationBackItemInjectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014A66241D5197D50055600B /* AXNavigationBackItemInjectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXNavigationBackItemInjectionUITests.m; sourceTree = "<group>"; };
 		014A66261D5197D50055600B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		014A66321D5198840055600B /* AXPopNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXPopNavigationController.h; path = AXNavigationBackItemInjection/AXPopNavigationController.h; sourceTree = "<group>"; };
+		014A66331D5198840055600B /* AXPopNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXPopNavigationController.m; path = AXNavigationBackItemInjection/AXPopNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 				014A66031D5197D40055600B /* AppDelegate.m */,
 				014A66051D5197D40055600B /* ViewController.h */,
 				014A66061D5197D40055600B /* ViewController.m */,
+				014A66351D51988F0055600B /* AXNavigationBackItemInjection */,
 				014A66081D5197D40055600B /* Main.storyboard */,
 				014A660B1D5197D40055600B /* Assets.xcassets */,
 				014A660D1D5197D40055600B /* LaunchScreen.storyboard */,
@@ -138,6 +142,15 @@
 				014A66261D5197D50055600B /* Info.plist */,
 			);
 			path = AXNavigationBackItemInjectionUITests;
+			sourceTree = "<group>";
+		};
+		014A66351D51988F0055600B /* AXNavigationBackItemInjection */ = {
+			isa = PBXGroup;
+			children = (
+				014A66321D5198840055600B /* AXPopNavigationController.h */,
+				014A66331D5198840055600B /* AXPopNavigationController.m */,
+			);
+			name = AXNavigationBackItemInjection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				014A66071D5197D40055600B /* ViewController.m in Sources */,
+				014A66341D5198840055600B /* AXPopNavigationController.m in Sources */,
 				014A66041D5197D40055600B /* AppDelegate.m in Sources */,
 				014A66011D5197D40055600B /* main.m in Sources */,
 			);
