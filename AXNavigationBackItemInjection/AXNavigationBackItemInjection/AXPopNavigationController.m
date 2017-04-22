@@ -26,6 +26,47 @@
 #import "AXPopNavigationController.h"
 #import <objc/runtime.h>
 
+@interface UIGestureRecognizer (Injection)
+@end
+
+@implementation UIGestureRecognizer (Injection)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Inject "-navigationBar:shouldPopItem:"
+        Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(@"_shouldBegin"));
+        Method swizzledMethod = class_getInstanceMethod(self, @selector(ax_gestureShouldBegin));
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    });
+}
+
+- (BOOL)ax_gestureShouldBegin {
+    BOOL shouldBegin = [self ax_gestureShouldBegin];
+    
+    if (![self isMemberOfClass:NSClassFromString(@"UIScreenEdgePanGestureRecognizer")]) return shouldBegin;
+    
+    UIResponder *nextViewController = self.view;
+    while (![nextViewController isKindOfClass:UIViewController.class]) {
+        nextViewController = nextViewController.nextResponder;
+    }
+    
+    if ([nextViewController isKindOfClass:UINavigationController.class]) {
+        UINavigationController *navigationController = (UINavigationController *)nextViewController;
+        
+        if (navigationController.popHandler) {
+            return navigationController.popHandler(navigationController.navigationBar, navigationController.topViewController.navigationItem);
+        } else {
+            if ([navigationController.topViewController respondsToSelector:@selector(navigationBar:shouldPopItem:)]) {
+                
+                return [(id<AXNavigationBackItemProtocol>)navigationController.topViewController navigationBar:navigationController.navigationBar shouldPopItem:navigationController.topViewController.navigationItem];
+            }
+        }
+    }
+    
+    return shouldBegin;
+}
+@end
+
 @implementation UINavigationController (Injection)
 
 + (void)load {

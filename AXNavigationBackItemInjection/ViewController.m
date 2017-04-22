@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "AXPopNavigationController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIGestureRecognizerDelegate>
 {
     BOOL _shouldPopItem;
 }
@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     _shouldPopItem = NO;
 }
 
@@ -52,4 +53,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIGestureRecognizerDelegate.
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
 @end
