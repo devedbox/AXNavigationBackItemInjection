@@ -46,7 +46,7 @@ typedef BOOL(^AXNavigationItemPopHandler)(UINavigationBar *navigationBar, UINavi
 /// @discusstion handler has higher priority than protocol. If you have both implemented. Then the system will choose the handler instead of protocol.
 ///
 /// @param navigationBar navigation bar to layout item.
-/// @param item item to pop.
+/// @param navigationItem item to pop.
 ///
 /// @return a Boolean value to decide pop item or not.
 ///
